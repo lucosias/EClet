@@ -458,7 +458,7 @@ cli_ecc_sign (int fd, struct arguments *args)
       close_input_file (args, f);
 
       /* Issue #9 hack */
-      wakeup (fd);
+      ci2c_wakeup (fd);
       /* end hack */
 
       ci2c_print_hex_string ("SHA256 file digest",
