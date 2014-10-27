@@ -457,6 +457,10 @@ cli_ecc_sign (int fd, struct arguments *args)
       file_digest = ci2c_sha256 (f);
       close_input_file (args, f);
 
+      /* Issue #9 hack */
+      wakeup (fd);
+      /* end hack */
+
       ci2c_print_hex_string ("SHA256 file digest",
                              file_digest.ptr,
                              file_digest.len);
